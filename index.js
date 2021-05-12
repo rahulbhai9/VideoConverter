@@ -1,3 +1,4 @@
+/*my media converter server v1*/
 const express = require("express");
 
 const ffmpeg = require("fluent-ffmpeg");
@@ -10,7 +11,7 @@ const fileUpload = require("express-fileupload");
 
 const app = express();
 
-const PORT = process.env.PORT || 5000
+const PORT = process.env.PORT;
 
 // parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -27,11 +28,11 @@ app.use(
   })
 );
 
-ffmpeg.setFfmpegPath("C:/ffmpeg/bin/ffmpeg.exe");
+//ffmpeg.setFfmpegPath("C:/ffmpeg/bin/ffmpeg.exe");
 
-ffmpeg.setFfprobePath("C:/ffmpeg/bin");
+//ffmpeg.setFfprobePath("C:/ffmpeg/bin");
 
-ffmpeg.setFlvtoolPath("C:/flvtool");
+//ffmpeg.setFlvtoolPath("C:/flvtool");
 
 console.log(ffmpeg);
 
@@ -82,4 +83,5 @@ app.post("/convert", (req, res) => {
   //.pipe(res, { end: true });
 });
 
-app.listen(PORT);
+app.listen(PORT, function() {
+});
